@@ -1,0 +1,19 @@
+{
+    "name": "idawn520/php-action-demo",
+    "description": "great",
+    "type": "project",
+    "authors": [
+        {
+            "name": "xixi zhou",
+            "email": "admin@zhouchenxi.cn"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Action\\" : "src"
+
+        }
+
+    }
+}
