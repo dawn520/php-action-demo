@@ -1,10 +1,12 @@
 <?php
 /**
- * Created by PhpStorm.
+ * 双向队列
+ *
  * User: zhouchenxi
  * Date: 2017/8/9
  * Time: 14:07
  */
+namespace Action;
 
 class Deque
 {
