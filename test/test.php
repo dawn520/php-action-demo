@@ -8,6 +8,7 @@
 
 use Action\Deque;
 use Action\SingleLinkedList\Node;
+use Action\SingleLinkedList\SingleLinkedList;
 use Action\SortBubble;
 
 require'../vendor/autoload.php';
@@ -29,5 +30,36 @@ function SortBubble(){
     echo $total;
 }
 //SortBubble();
-$a = new Node(["A","B"]);
 
+/**
+ * 单向链表
+ */
+function SingleLinkedList(){
+    $a = new Node("张三");
+    $b = new Node('李四');
+    $c = new Node("王五");
+    $d = new Node('赵六');
+    $e = new Node('孙七');
+
+    $link = new SingleLinkedList($a);
+//    var_dump($link);
+    $link->addNode($b);
+//    var_dump($link);
+    $link->addNode($c);
+//    var_dump($link);
+    $link->addNode($d);
+//    var_dump($link);
+    $link->addNode($e);
+//    var_dump($link);
+//
+//    $f = new Node('周八');
+//    $link->insertNode($f,2);
+//    var_dump($link);
+//
+//    $link->delNode(2);
+//    var_dump($link);
+
+    var_dump($link->reserveLink());
+
+}
+SingleLinkedList();

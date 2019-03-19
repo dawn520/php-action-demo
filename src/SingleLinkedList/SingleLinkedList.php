@@ -18,14 +18,18 @@ class SingleLinkedList
      * 初始化链表
      *
      * SingleLinkedList constructor.
-     * @param null $Node
-     * @param null $name
+     * @param Node $Node
      */
-    public function __construct($Node = null, $name = null)
+    public function __construct(Node $Node)
     {
-        $this->header = new Node ($Node, null);
+        $this->header = $Node;
     }
 
+    /**
+     * 统计链表长度
+     *
+     * @return int
+     */
     public function count()
     {
         $length = 0;
@@ -101,5 +105,54 @@ class SingleLinkedList
     public function clear()
     {
         $this->header = null;
+    }
+
+    /**
+     * 正序遍历
+     */
+    public function printLink()
+    {
+        $currentNode = $this->header;
+        while ($currentNode->getData() != null) {
+            echo $currentNode->getData();
+        }
+    }
+
+    /**
+     * 倒序遍历
+     *
+     * @param Node $header
+     */
+    public function printLinkRev(Node $header)
+    {
+        if ($header->getData() != null) {
+            $this->printLinkRev($header->getNext());
+            echo $header->getData();
+        }
+    }
+
+    /**
+     * 反转链表
+     *
+     * @return Node|null
+     */
+    public function reserveLink()
+    {
+        $current = $this->header;
+        if ($current === null) {
+            return null;
+        }
+        $result = $pre = null;
+        while ($current != null) {
+            $next = $current->getNext();
+            if ($next != null) {
+                $result = $current;
+            }
+            $current->setNext($pre);
+            $pre = $current;
+            $current = $next;
+        }
+        $this->header = $result;
+        return $result;
     }
 }
