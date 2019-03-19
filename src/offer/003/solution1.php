@@ -14,11 +14,10 @@ function Find($target, $array)
     $arrayLength = count($array);
     $y = 0;
     $x = $arrayLength - 1;
-    while ($x >= 0 && $y <count($array[0])) {
+    while ($x >= 0 && $y < count($array[0])) {
         if ($target == $array[$x][$y]) {
             return true;
-        }
-        if ($target > $array[$x][$y]) {
+        } else if ($target > $array[$x][$y]) {
             $y++;
         } else {
             $x--;
@@ -34,4 +33,4 @@ $a = [
     [6, 8, 11, 15]
 ];
 
-var_dump(find(11,$a));
+var_dump(find(11, $a));
