@@ -46,11 +46,13 @@ function printListFromTailToHead($head, $array = [])
     if ($head === null) {
         return [];
     }
-    while ($head->val !== null) {
-        $array = printListFromTailToHead($head->next, $array);
+    if ($head->val !== null) {
+        if ($head->next != null) {
+            $array = printListFromTailToHead($head->next, $array);
+        }
         $array[] = $head->val;
-        return $array;
     }
+    return $array;
 }
 
 $a = new ListNode(58);
