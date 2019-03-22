@@ -30,8 +30,6 @@ function reConstructBinaryTree($pre, $vin)
 
     $preLeftTree = array_slice($pre, 1, count($vinLeftTree));
     $preRightTree = array_slice($pre, count($vinLeftTree) + 1, count($vinRightTree));
-    var_dump($preRightTree);
-
 
     $rootNode = new TreeNode($root);
     $rootNode->left = reConstructBinaryTree($preLeftTree, $vinLeftTree);
