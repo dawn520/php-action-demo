@@ -67,5 +67,14 @@ function SingleLinkedList()
 }
 
 //SingleLinkedList();
-
-
+/**
+ * 观察者模式
+ */
+function ObserverPattern()
+{
+    $event = new \Action\Patterns\Observer\Event();
+    $event->addObserver(new \Action\Patterns\Observer\Observer1());
+    $event->addObserver(new \Action\Patterns\Observer\Observer2());
+    $event->doSomething();
+}
+//ObserverPattern();
