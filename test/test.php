@@ -77,4 +77,108 @@ function ObserverPattern()
     $event->addObserver(new \Action\Patterns\Observer\Observer2());
     $event->doSomething();
 }
+
 //ObserverPattern();
+
+/**
+ * 给定一个数字a 生成a*a的数组
+ * 例子：
+ * int a=5;
+ * 1  2  3  4  5
+ * 16 17 18 19 6
+ * 15 24 25 20 7
+ * 14 23 22 21 8
+ * 13 12 11 10 9
+ *
+ * @param int $a
+ * @return mixed
+ */
+function createArray(int $a)
+{
+    $i = $j = $times = 0;
+    $arr[0][0] = 1;
+    $first = 2;
+    $flag = 4;
+    $b = $a - 1;
+    while ($first <= $a * $a) {
+
+        switch ($flag) {
+            default:
+            case 4:
+                $j++;
+                $arr[$i][$j] = $first;
+                if ($j == $b - $times) {
+                    $flag = 1; //下
+                }
+                $first++;
+                break;
+            case 1:
+                $i++;
+                $arr[$i][$j] = $first;
+                if ($i == $b - $times) {
+                    $flag = 2;
+                }
+                $first++;
+                break;
+            case 2:
+                $j--;
+                $arr[$i][$j] = $first;
+                if ($j == $times) {
+                    $flag = 3;
+                    $times++;
+                }
+                $first++;
+                break;
+            case 3:
+                $i--;
+                $arr[$i][$j] = $first;
+                if ($i == $times) {
+                    $flag = 4;
+                }
+                $first++;
+                break;
+
+        }
+    }
+    return $arr;
+}
+
+$a = createArray(6);
+foreach ($a as &$arr) {
+    ksort($arr);
+}
+print_r($a);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
